@@ -68,7 +68,7 @@ def sign_in():
             
 
     if not username_error and not password_error and not verify_error and not email_error:
-        return redirect('/welcome')
+        return redirect('/welcome?username={0}'.format(username))
     else:
         return render_template('sign-up.html', username_error = username_error,
         password_error = password_error, verify_error = verify_error, email_error = email_error,
@@ -76,7 +76,7 @@ def sign_in():
 #TODO: add welcome page
 @app.route('/welcome')
 def welcome():
-    username = request.form['username']
+    username = request.args.get('username')
     return render_template('welcome.html', username = username)
 
 
