@@ -74,6 +74,10 @@ def sign_in():
         password_error = password_error, verify_error = verify_error, email_error = email_error,
         username = username, password = password, verify_password = verify_password, email = email)
 #TODO: add welcome page
+@app.route('/welcome')
+def welcome():
+    username = request.form['username']
+    return render_template('welcome.html', username = username)
 
 
 
