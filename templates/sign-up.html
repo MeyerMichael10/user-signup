@@ -5,19 +5,35 @@
         <h2>User Sign Up</h2>
         <form action='/sign_in' method='post'>
             <label for="username">Username
+                {% if username %}
                 <input type="text" name="username" value={{username}} />
+                {% else %}
+                <input type="text" name="username" />
+                {% endif %}
             </label>
             <p class="error">{{username_error}}</p>
             <label for="password">password
+                {% if password %}
                 <input type="password" name="password" value={{password}} />
+                {% else %}
+                <input type="password" name="password"  />
+                {% endif %}
             </label>
             <p class="error">{{password_error}}</p>
             <label for="verify">Confirm Password
-                <input type="password" name="verify_password" value={{verify_password}}/>
+                {% if verify_password %}
+                <input type="password" name="verify_password" value={{verify_password}} />
+                {% else %}
+                <input type="password" name="verify_password" />
+                {% endif %}
             </label>
             <p class="error">{{verify_error}}</p>
             <label for="email">Email (optional)
+                {% if email %}
                 <input type="text" name="email" value={{email}}/>
+                {% else %}
+                <input type="text" name="email" />
+                {% endif %}
             </label>
             <p class="error">{{email_error}}</p>   
             <input type="submit" value="Submit" />
